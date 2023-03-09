@@ -14,7 +14,8 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 usr_id = 2
-usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
+# Poner un if que pregunte si hay usuarios registrados
+#usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
 
 def registro(request):
     if request.user.is_authenticated:
@@ -74,7 +75,7 @@ def home(request):
 
 @login_required(login_url='../login/')
 def homes(request):
-    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
+    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)######################
     return render(request, 'homes.html', {'name':usuarios_obj.nombre_usuario})
 
 @login_required(login_url='../login/')

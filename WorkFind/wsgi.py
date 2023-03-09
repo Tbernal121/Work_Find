@@ -1,5 +1,5 @@
 """
-WSGI config for WorkTalents project.
+WSGI config for WorkFind project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WorkTalents.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WorkFind.settings')
 
 application = get_wsgi_application()
