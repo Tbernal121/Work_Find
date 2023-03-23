@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import login_required
 
 usr_id = 2
 # Poner un if que pregunte si hay usuarios registrados
-#usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
+usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
 
 def registro(request):
     if request.user.is_authenticated:

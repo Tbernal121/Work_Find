@@ -36,7 +36,9 @@ class Aspirante(models.Model):
     certificaciones = models.CharField(max_length=200, null=False)
     experiencia = models.CharField(max_length=1000, null=False)
     fecha_nacimiento = models.DateTimeField(auto_now_add=True)
-
+    likes = models.IntegerField(default=0)
+    quien_me_likeo = models.CharField(max_length=1000)
+    
     def __str__(self):
         aspirante = "nombre del Aspirante: "+self.nombre_aspirante
         return aspirante
@@ -62,8 +64,6 @@ class Oferta(models.Model):
     perfil_buscado = models.CharField(max_length=200, null=False)
     salario = models.PositiveIntegerField(default=0)
 
-    
-
 
 class Match(models.Model):
     Oferta_id_oferta = models.ForeignKey(Oferta, null= False, blank=False, on_delete=models.CASCADE)
@@ -73,3 +73,10 @@ class Match(models.Model):
     fecha_match = models.DateTimeField(auto_now_add=True)
     tipo_match = models.CharField(max_length=45, null=True,default="Perfecto", choices=(('Perfecto','Perfecto'),('Muy bueno', 'Muy bueno'),('Bueno','Bueno'),('Medio','Medio')))
     porcentaje = models.PositiveIntegerField(default=100)
+
+
+'''
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    likes = models.IntegerField(default=0)'''
