@@ -14,7 +14,6 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 usr_id = 2
-# Poner un if que pregunte si hay usuarios registrados
 #usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
 
 def registro(request):
@@ -88,7 +87,21 @@ def empresas(request): #cambios de mayusculas, homes es para pruebas
 def aspirantes(request):
     info_tablaA = Aspirante.objects.filter()
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
+    if request.method == 'POST':
+        usuario_que_likeo = request.POST.get('usuario')
+        context = {
+            'tabla_aspirantes': info_tablaA,
+            'name': usuarios_obj.nombre_usuario,
+            'usuario_que_likeo': usuario_que_likeo,
+        }
+        return render(request, 'aspirantes.html', context)
+    else:
+        context = {
+            'tabla_aspirantes': info_tablaA,
+            'name': usuarios_obj.nombre_usuario,
+        }
     return render(request, 'aspirantes.html', {'tabla_aspirantes': info_tablaA, 'name':usuarios_obj.nombre_usuario})
+
 
 @login_required(login_url='../login/')
 def ofertas(request):
