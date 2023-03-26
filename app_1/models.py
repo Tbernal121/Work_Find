@@ -37,7 +37,7 @@ class Aspirante(models.Model):
     experiencia = models.CharField(max_length=1000, null=False)
     fecha_nacimiento = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
-    quien_me_likeo = models.CharField(max_length=1000)
+    quien_me_likeo = models.CharField(max_length=1000, null=True)
     
     def __str__(self):
         aspirante = "nombre del Aspirante: "+self.nombre_aspirante
