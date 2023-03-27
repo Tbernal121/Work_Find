@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from django.contrib import messages
-from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm
+from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -109,6 +109,11 @@ def ofertas(request):
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
     return render(request, 'ofertas.html', {'tabla_ofertas': info_tablaO, 'name':usuarios_obj.nombre_usuario})
 
+@login_required(login_url='../login/')
+def matchs(request):
+    info_tablaM = Match.objects.filter()
+    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
+    return render(request, 'matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
 
 @login_required(login_url='../login/')
 def documentacionAspirante(request):
@@ -141,6 +146,28 @@ def ingresarOferta(request):
 
     return render(request, 'formularios/ingresarOferta.html', {'formulario': formulario})#data)
 
+@login_required(login_url='../login/')
+def aplicarOferta(request):
+    #data={
+    #   'formOferta': ingresarOfertaForm()
+    #}
+    #if request.method == 'POST':
+    #    formulario = ingresarOfertaForm(data=request.POST)
+    #    if formulario.is_valid():
+    #        formulario.save()
+    #        data["mensaje"] = "Oferta Guardada"
+    #    else:
+    #        data["formOferta"] =formulario
+    #        data["mensaje"] = "Syntax Error"
+
+    formulario = PresentarseOfertaForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        messages.success(request, "Has aplicado exitosamente")  # prueba de funcionalidad
+        #return redirect('homes')
+        return redirect('ofertas')
+
+    return render(request, 'formularios/PresentarseOferta.html', {'formulario': formulario})#data)
 
 @login_required(login_url='../login/')
 def ingresarEmpresa(request):
