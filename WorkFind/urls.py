@@ -36,6 +36,7 @@ urlpatterns = [
     path('login/', vistas.login1),
     path('registro/', vistas.registro),
     path('logout/', vistas.logoutUser),
+    path('agregar_habilidad/', vistas.agregar_habilidad, name='agregar_habilidad'),
 ]
 
 
