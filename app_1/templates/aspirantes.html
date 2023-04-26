@@ -303,6 +303,9 @@
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Correo</th>
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Certificados</th>
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Experiencia</th>
+              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Like</th>
+              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Dar like</th>
+
             </tr>
           </thead>
           <tbody>
@@ -316,10 +319,30 @@
                     <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.correo_aspirante}}</td>
                     <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.certificaciones}}</td>
                     <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.experiencia}}</td>
+                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.likes}}</td>
+                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{usuario_que_likeo}}</td>
                 </tr>
             {% endfor %}
           </tbody>
         </table>
         <a name="" id="" class="btn btn-primary" href="{% url 'ingresarAspirante' %}" role="button">Ingresar Nuevo Aspirante</a>
+
+
+
+        <form method="POST" action="{% url 'aspirantes' %}">
+            {% csrf_token %}
+            <label for="aspirantes">Nombre de usuario: {{name}}</label>
+            <!-- <input type="text" id="nombre_usuario" name="nombre_usuario" required> -->
+            <button type="submit">dar like</button>
+          </form>
+            
+
+          <form method="post" action="{% url 'aspirantes' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-dark">Obtener nombre de usuario</button>
+        </form>
+
+
+            
     </div>
 {% endblock %}

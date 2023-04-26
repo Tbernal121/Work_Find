@@ -1,23 +1,20 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.contrib import messages
-from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm, HabilidadForm
+from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
-
-
 usr_id = 2
-#usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
+usuarios_obj = Usuario.objects.get(id_usuario = usr_id)
 
 def registro(request):
     if request.user.is_authenticated:
@@ -77,7 +74,7 @@ def home(request):
 
 @login_required(login_url='../login/')
 def homes(request):
-    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)######################
+    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
     return render(request, 'homes.html', {'name':usuarios_obj.nombre_usuario})
 
 @login_required(login_url='../login/')
@@ -103,7 +100,7 @@ def aspirantes(request):
             'tabla_aspirantes': info_tablaA,
             'name': usuarios_obj.nombre_usuario,
         }
-    return render(request, 'aspirantes.html', {'tabla_aspirantes': info_tablaA, 'name':usuarios_obj.nombre_usuario})
+        return render(request, 'aspirantes.html', context)
 
 
 @login_required(login_url='../login/')
@@ -112,11 +109,13 @@ def ofertas(request):
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
     return render(request, 'ofertas.html', {'tabla_ofertas': info_tablaO, 'name':usuarios_obj.nombre_usuario})
 
+
 @login_required(login_url='../login/')
 def matchs(request):
     info_tablaM = Match.objects.filter()
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
     return render(request, 'matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
+
 
 @login_required(login_url='../login/')
 def documentacionAspirante(request):
@@ -149,6 +148,7 @@ def ingresarOferta(request):
 
     return render(request, 'formularios/ingresarOferta.html', {'formulario': formulario})#data)
 
+
 @login_required(login_url='../login/')
 def aplicarOferta(request):
     #data={
@@ -171,6 +171,8 @@ def aplicarOferta(request):
         return redirect('ofertas')
 
     return render(request, 'formularios/PresentarseOferta.html', {'formulario': formulario})#data)
+
+
 
 @login_required(login_url='../login/')
 def ingresarEmpresa(request):
@@ -213,20 +215,3 @@ def ingresarAspirante(request):
         #return redirect('homes')
         return redirect('aspirantes')
     return render(request, 'formularios/ingresarAspirante.html')
-
-
-
-
-
-@login_required
-def agregar_habilidad(request):
-    if request.method == 'POST':
-        form = HabilidadForm(request.POST)
-        if form.is_valid():
-            habilidad = form.save(commit=False)
-            habilidad.usuario = request.user
-            habilidad.save()
-            return redirect('perfil')
-    else:
-        form = HabilidadForm()
-    return render(request, 'agregar_habilidad.html', {'form': form})

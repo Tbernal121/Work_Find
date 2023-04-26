@@ -1,8 +1,6 @@
 from django.db import models
 # Create your models here.
 
-from django.contrib.auth.models import User
-
 
 class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key=True, blank=False)
@@ -39,7 +37,7 @@ class Aspirante(models.Model):
     experiencia = models.CharField(max_length=1000, null=False)
     fecha_nacimiento = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
-    quien_me_likeo = models.CharField(max_length=1000, null=True)
+    quien_me_likeo = models.CharField(max_length=1000)
     
     def __str__(self):
         aspirante = "nombre del Aspirante: "+self.nombre_aspirante
@@ -76,13 +74,6 @@ class Match(models.Model):
     tipo_match = models.CharField(max_length=45, null=True,default="Perfecto", choices=(('Perfecto','Perfecto'),('Muy bueno', 'Muy bueno'),('Bueno','Bueno'),('Medio','Medio')))
     porcentaje = models.PositiveIntegerField(default=100)
 
-
-class Habilidad(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    nombre = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.nombre
 
 '''
 class Post(models.Model):
