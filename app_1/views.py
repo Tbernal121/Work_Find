@@ -215,3 +215,10 @@ def ingresarAspirante(request):
         #return redirect('homes')
         return redirect('aspirantes')
     return render(request, 'formularios/ingresarAspirante.html')
+
+
+@login_required(login_url='../login/')
+def ver_matchs(request):
+    info_tablaO = Oferta.objects.filter()
+    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
+    return render(request, 'ver_matchs.html', {'tabla_ofertas': info_tablaO, 'name':usuarios_obj.nombre_usuario})

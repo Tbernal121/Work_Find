@@ -39,6 +39,9 @@ urlpatterns = [
     path('login/', vistas.login1),
     path('registro/', vistas.registro),
     path('logout/', vistas.logoutUser),
+
+    path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
+
 ]
 
 
