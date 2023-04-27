@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.contrib import messages
-from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm
+from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm, HabilidadForm
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -224,3 +224,18 @@ def ver_matchs(request):
     return render(request, 'ver_matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
 
 
+
+
+
+@login_required
+def agregar_habilidad(request):
+    if request.method == 'POST':
+        form = HabilidadForm(request.POST)
+        if form.is_valid():
+            habilidad = form.save(commit=False)
+            habilidad.usuario = request.user
+            habilidad.save()
+            return redirect('perfil')
+    else:
+        form = HabilidadForm()
+    return render(request, 'agregar_habilidad.html', {'form': form})

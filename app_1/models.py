@@ -1,6 +1,6 @@
 from django.db import models
 # Create your models here.
-
+from django.contrib.auth.models import User
 
 class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key=True, blank=False)
@@ -76,7 +76,14 @@ class Match(models.Model):
     #usuario_aspirante = info del aspirante para mostrarle a la empresa con quién específicamente ha hecho match y 
     #ya la empresa decide si contactarlos o no
 
+class Habilidad(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.nombre
+
+        
 class Ver_matchs(models.Model):
     Oferta_id_oferta = models.ForeignKey(Oferta, null= False, blank=False, on_delete=models.CASCADE)
     Empresa_id_empresa = models.ForeignKey(Empresa, null= False, blank=False, on_delete=models.CASCADE)

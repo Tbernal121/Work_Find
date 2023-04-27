@@ -41,6 +41,7 @@ urlpatterns = [
     path('login/', vistas.login1),
     path('registro/', vistas.registro),
     path('logout/', vistas.logoutUser),
+    path('agregar_habilidad/', vistas.agregar_habilidad, name='agregar_habilidad'),
 
     #path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
 
