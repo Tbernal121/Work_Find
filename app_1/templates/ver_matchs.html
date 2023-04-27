@@ -298,6 +298,7 @@
           <thead>
             <tr>
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Empresa</th>
+              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Aspirante</th>
               <!-- <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Fecha</th> -->
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Tipo de match</th>
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Porcentaje</th>
@@ -306,15 +307,18 @@
           <tbody>
              
             {% for ver_matchs in tabla_ver_matchs %}
+            {% if ver_matchs.Nombre_empresa == "Mercado Libre" %}
 
         
                 <tr>                                                        
                     <td style="background: #21318f; color:rgb(209, 209, 209);">{{ver_matchs.Nombre_empresa}}</th>
+                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.Aspirante_id_aspirante}}</td>
                     <!-- <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.fecha_match}} GMT</td> -->
                     <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.tipo_match}}</td>
                     <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.porcentaje}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.Oferta_id_oferta}}</td>
+                    
                 </tr>
+                {% endif %}
             {% endfor %}
           </tbody>
         </table>

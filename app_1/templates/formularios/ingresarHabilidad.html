@@ -276,73 +276,94 @@
     .botones a:hover{
         background-color: rgb(0, 39, 112);
     }
+      <!--                          -->
       
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}   
+body {
+    background-color: rgb(45, 141, 197);
+}
+.form-registro {
+
+    width: 400px;
+    background-color: beige;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: Verdana, sans-serif;
+    color: rgb(158, 24, 24); 
+    box-shadow: 7px 13px 37px #000;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.form-registro h4 {
+    font-size: large;
+    margin-bottom: 20px;
+    color: rgb(12, 34, 53);
+
+}
+.controles {
+    width: 100%;
+    background-color: beige;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #051c4d;
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+}
+.form-registro .botones{
+    align-content: center;
+    width: 80%;
+    background-color: rgb(20, 90, 73);
+    border-radius: 2px;
+    padding: 10px;
+    color: rgb(245, 245, 245);
+    font-style: italic;
+    font-weight: bolder;
+    margin: 12px;
+    font-size: 16px;
+    border-color: #082e80;
+}
     
 </style>
-
 {% extends "base.html" %}
-{% block titulo %} Aspirantes - WorkFind {% endblock %}
+{% block titulo %} Ingresar Habilidad - WorkFind {% endblock %}
 {% block contenido %}
-      <div>
-        <h2 align="center" style="padding-bottom:0.5em;"><b><font face="Poppins"> {{name}}, ¡Bienvenid@ a la sección <b class="color2">Aspirantes </b></font></h2>  
-      </div>
 
+<h3 align="center">Habilidad</h3>
+<!-- Formulario de Oferta
+id empresa
+nomre empresa
+cargo
+perfil bsucado
+salario
+-->
 
-      
-      <div style="text-align:center; margin-top:20px; margin-bottom:18px;padding-left:2em;">
-        <h2><font face="Poppins" color="#0000"><b>Aspirantes registrados</b></font></h2>
-    </div>
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <!--<div class="card" style="background: none;">
+            <div class="card-body">-->
 
-    <div style="padding-left:12em; padding-right:12em;">
-        <table class="table table-hover table-bordered" style="background:#65ff72; border-color: #3753b1; ">
-          <thead>
-            <tr>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">id</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Nombre</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Cedula</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Correo</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Certificados</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Experiencia</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Like</th>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Dar like</th>
-
-            </tr>
-          </thead>
-          <tbody>
-             
-            {% for aspirante in tabla_aspirantes %}
-                
-                <tr>
-                    <td style="background: #21318f; color:rgb(255, 255, 255);">{{aspirante.id_aspirante}}</th>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.nombre_aspirante}}</th>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.cedulaciudadania}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.correo_aspirante}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.certificaciones}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.experiencia}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.likes}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{aspirante.likes}}</td>
-                </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        <a name="" id="" class="btn btn-primary" href="{% url 'ingresarAspirante' %}" role="button">Ingresar Nuevo Aspirante</a>
-
-
-
-        <form method="POST" action="{% url 'aspirantes' %}">
-            {% csrf_token %}
-            <label for="aspirantes">Nombre de usuario: {{name}}</label>
-            <!-- <input type="text" id="nombre_usuario" name="nombre_usuario" required> -->
-            <button type="submit">dar like</button>
-          </form>
+                <form action="" class="" method="post">
+                    {% csrf_token %}
+                    <section class= "form-registro"><!-- {{formOferta}} sin estilos-->
+                        <h4 align="center"> Registrar Habilidad </h4>
+                        <input class="controles" type="text" name = "nombre" id ="Empresa_id_empresa" placeholder="Nombre Habilidad">
+                        <center><button type="submit" id="btnEnviar" class="botones">Enviar</button></center>
+                        <!--{{mensaje}}Revisar types en modelos para terminarla-->
+                    </section>
+                </form>
             
-
-          <form method="post" action="{% url 'aspirantes' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-dark">Obtener nombre de usuario</button>
-        </form>
-
-
-            
+            <!--</div>
+        </div>-->
     </div>
+</div>
+
+
 {% endblock %}

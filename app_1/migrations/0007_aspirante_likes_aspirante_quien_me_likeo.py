@@ -14,10 +14,5 @@ class Migration(migrations.Migration):
             model_name="aspirante",
             name="likes",
             field=models.IntegerField(default=0),
-        ),
-        migrations.AddField(
-            model_name="aspirante",
-            name="quien_me_likeo",
-            field=models.CharField(max_length=1000, null=True),
-        ),
+        ),        
     ]

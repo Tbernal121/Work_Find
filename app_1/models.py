@@ -97,6 +97,13 @@ class Ver_matchs(models.Model):
     #ya la empresa decide si contactarlos o no
 
 
+class Habilidad1(models.Model):
+    id_habilidad1 = models.AutoField(primary_key=True, blank=False)
+    usuario = models.ForeignKey(Usuario, null= False, blank=False, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=50, null=True, default="")
+
+    def _str_(self):
+        return self.nombre
 
 
 '''

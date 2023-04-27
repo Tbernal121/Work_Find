@@ -226,13 +226,10 @@ def ver_matchs(request):
 
 @login_required
 def agregar_habilidad(request):
-    if request.method == 'POST':
-        form = HabilidadForm(request.POST)
-        if form.is_valid():
-            habilidad = form.save(commit=False)
-            habilidad.usuario = request.user
-            habilidad.save()
-            return redirect('perfil')
-    else:
-        form = HabilidadForm()
-    return render(request, 'agregar_habilidad.html', {'form': form})
+    formulario = HabilidadForm(request.POST or None)
+    if formulario.is_valid():
+        formulario.save()
+        messages.success(request, "Nueva habilidad registrada con éxito.")  # prueba de funcionalidad
+        #return redirect('homes')
+        return redirect('aspirantes')
+    return render(request, 'formularios/ingresarHabilidad.html')

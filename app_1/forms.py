@@ -1,5 +1,5 @@
 from django import forms
-from .models import Aspirante, Empresa, Oferta, Match, Habilidad
+from .models import Aspirante, Empresa, Oferta, Match, Habilidad1
 
 class ingresarOfertaForm(forms.ModelForm):
     class Meta:
@@ -26,5 +26,5 @@ class ingresarAspiranteForm(forms.ModelForm):
 
 class HabilidadForm(forms.ModelForm):
     class Meta:
-        model = Habilidad
+        model = Habilidad1
         fields = ('nombre',)
