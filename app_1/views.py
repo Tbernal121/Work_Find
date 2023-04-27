@@ -111,13 +111,6 @@ def ofertas(request):
 
 
 @login_required(login_url='../login/')
-def matchs(request):
-    info_tablaM = Match.objects.filter()
-    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
-    return render(request, 'matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
-
-
-@login_required(login_url='../login/')
 def documentacionAspirante(request):
     return render(request, 'docAspirante.html')
 
@@ -218,7 +211,16 @@ def ingresarAspirante(request):
 
 
 @login_required(login_url='../login/')
-def ver_matchs(request):
-    info_tablaO = Oferta.objects.filter()
+def matchs(request):
+    info_tablaM = Match.objects.filter()
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
-    return render(request, 'ver_matchs.html', {'tabla_ofertas': info_tablaO, 'name':usuarios_obj.nombre_usuario})
+    return render(request, 'matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
+
+
+@login_required(login_url='../login/')
+def ver_matchs(request):
+    info_tablaM = Ver_matchs.objects.filter()
+    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
+    return render(request, 'ver_matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
+
+

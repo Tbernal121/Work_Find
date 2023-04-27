@@ -9,3 +9,6 @@ admin.site.register(Aspirante)
 admin.site.register(documentacionEmpresa)
 admin.site.register(documentacionAspirante)
 admin.site.register(Oferta)
+admin.site.register(Match)
+admin.site.register(Ver_matchs)
+

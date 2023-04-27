@@ -69,10 +69,24 @@ class Match(models.Model):
     Oferta_id_oferta = models.ForeignKey(Oferta, null= False, blank=False, on_delete=models.CASCADE)
     Empresa_id_empresa = models.ForeignKey(Empresa, null= False, blank=False, on_delete=models.CASCADE)
     Aspirante_id_aspirante = models.ForeignKey(Aspirante, null= False, blank=False, on_delete=models.CASCADE)
-    Nombre_empresa = models.CharField(max_length=45, null=True, default="Coca-Cola")
+    Nombre_empresa = models.CharField(max_length=45, null=True, default="") #default="MercadoLibre"
     fecha_match = models.DateTimeField(auto_now_add=True)
     tipo_match = models.CharField(max_length=45, null=True,default="Perfecto", choices=(('Perfecto','Perfecto'),('Muy bueno', 'Muy bueno'),('Bueno','Bueno'),('Medio','Medio')))
     porcentaje = models.PositiveIntegerField(default=100)
+    #usuario_aspirante = info del aspirante para mostrarle a la empresa con quién específicamente ha hecho match y 
+    #ya la empresa decide si contactarlos o no
+
+
+class Ver_matchs(models.Model):
+    Oferta_id_oferta = models.ForeignKey(Oferta, null= False, blank=False, on_delete=models.CASCADE)
+    Empresa_id_empresa = models.ForeignKey(Empresa, null= False, blank=False, on_delete=models.CASCADE)
+    Aspirante_id_aspirante = models.ForeignKey(Aspirante, null= False, blank=False, on_delete=models.CASCADE)
+    Nombre_empresa = models.CharField(max_length=45, null=True, default="aaa") #default="MercadoLibre"
+    fecha_match = models.DateTimeField(auto_now_add=True)
+    tipo_match = models.CharField(max_length=45, null=True,default="Perfecto", choices=(('Perfecto','Perfecto'),('Muy bueno', 'Muy bueno'),('Bueno','Bueno'),('Medio','Medio')))
+    porcentaje = models.PositiveIntegerField(default=100)
+
+
 
 
 '''
