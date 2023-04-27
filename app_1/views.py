@@ -219,12 +219,9 @@ def matchs(request):
 
 @login_required(login_url='../login/')
 def ver_matchs(request):
-    info_tablaM = Ver_matchs.objects.filter()
+    info_tablaVM = Match.objects.filter()
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
-    return render(request, 'ver_matchs.html', {'tabla_matchs': info_tablaM, 'name':usuarios_obj.nombre_usuario})
-
-
-
+    return render(request, 'ver_matchs.html', {'tabla_ver_matchs': info_tablaVM, 'name':usuarios_obj.nombre_usuario})
 
 
 @login_required

@@ -290,14 +290,14 @@
 
       
       <div style="text-align:center; margin-top:20px; margin-bottom:18px;padding-left:2em;">
-        <h2><font face="Poppins" color="#0000"><b>Mis matchs</b></font></h2>
+        <h2><font face="Poppins" color="#0000"><b>Mis Matchs</b></font></h2>
     </div>
 
     <div style="padding-left:12em; padding-right:12em;">
         <table class="table table-hover table-bordered" style="background:#65ff72; border-color: #3753b1; ">
           <thead>
             <tr>
-              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Empresaaaaaaaaaa</th>
+              <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Empresa</th>
               <!-- <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Fecha</th> -->
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Tipo de match</th>
               <th style="background: #21318f; color:rgb(209, 209, 209);" scope="col">Porcentaje</th>
@@ -305,14 +305,15 @@
           </thead>
           <tbody>
              
-            {% for match in tabla_matchs %}
+            {% for ver_matchs in tabla_ver_matchs %}
 
         
-                <tr>
-                    <td style="background: #21318f; color:rgb(209, 209, 209);">{{match.Nombre_empresa}}</th>
-                    <!-- <td style="background: #5066e4; color:rgb(255, 255, 255);">{{match.fecha_match}} GMT</td> -->
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{match.tipo_match}}</td>
-                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{match.porcentaje}}</td>
+                <tr>                                                        
+                    <td style="background: #21318f; color:rgb(209, 209, 209);">{{ver_matchs.Nombre_empresa}}</th>
+                    <!-- <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.fecha_match}} GMT</td> -->
+                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.tipo_match}}</td>
+                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.porcentaje}}</td>
+                    <td style="background: #5066e4; color:rgb(255, 255, 255);">{{ver_matchs.Oferta_id_oferta}}</td>
                 </tr>
             {% endfor %}
           </tbody>

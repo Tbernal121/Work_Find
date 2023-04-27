@@ -27,7 +27,7 @@ urlpatterns = [
     path('empresas', vistas.empresas, name= 'empresas'),
     path('ofertas', vistas.ofertas, name= 'ofertas'),
     path('matchs', vistas.matchs, name= 'matchs'),
-    path('ver_matchs', vistas.matchs, name = 'ver_matchs'),
+    path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
 
     path('docEmpresa', vistas.documentacionEmpresa, name= 'docEmpresa'),
     path('docAspirante', vistas.documentacionAspirante, name= 'docAspirante'),
