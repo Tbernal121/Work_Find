@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app_1 import views as vistas
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -43,10 +45,14 @@ urlpatterns = [
     path('logout/', vistas.logoutUser),
     path('agregar_habilidad/', vistas.agregar_habilidad, name='agregar_habilidad'),
 
+    path('', vistas.simple_upload, name='agregar_habilidad')
+
     #path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
 
 ]
 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
