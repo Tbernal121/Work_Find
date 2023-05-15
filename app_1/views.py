@@ -7,8 +7,8 @@ from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaFor
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from django.shortcuts import redirect, get_object_or_404
-from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import redirect, get_object_or_404, render
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -228,11 +228,13 @@ def ver_matchs(request):
 def agregar_habilidad(request):
     formulario = HabilidadForm(request.POST or None)
     if formulario.is_valid():
-        formulario.save()
-        messages.success(request, "Nueva habilidad registrada con éxito.")  # prueba de funcionalidad
-        #return redirect('homes')
+        habilidad = formulario.save(commit=False)
+        usuario = Usuario.objects.get(nombre_usuario=request.user.username)
+        habilidad.usuario = usuario
+        habilidad.save()
+        messages.success(request, "Nueva habilidad registrada con éxito.")
         return redirect('aspirantes')
-    return render(request, 'formularios/ingresarHabilidad.html')
+    return render(request, 'formularios/ingresarHabilidad.html', {'formulario': formulario})
 
 
 

@@ -76,12 +76,7 @@ class Match(models.Model):
     #usuario_aspirante = info del aspirante para mostrarle a la empresa con quién específicamente ha hecho match y 
     #ya la empresa decide si contactarlos o no
 
-class Habilidad(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    nombre = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.nombre
 
         
 # Esta clase se podría borrar y no le pasaría nada al modelo
