@@ -249,3 +249,8 @@ def simple_upload(request):
             'uploaded_file_url': uploaded_file_url
         })
     return render(request, 'formularios/ingresarHabilidad.html')
+
+@login_required(login_url='../login/')
+def perfil(request):
+    usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
+    return render(request, 'perfil.html', {'name':usuarios_obj.nombre_usuario})

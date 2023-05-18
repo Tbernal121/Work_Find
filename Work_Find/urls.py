@@ -30,6 +30,7 @@ urlpatterns = [
     path('ofertas', vistas.ofertas, name= 'ofertas'),
     path('matchs', vistas.matchs, name= 'matchs'),
     path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
+    path('perfil', vistas.perfil, name= 'perfil'),
 
     path('docEmpresa', vistas.documentacionEmpresa, name= 'docEmpresa'),
     path('docAspirante', vistas.documentacionAspirante, name= 'docAspirante'),
@@ -43,7 +44,7 @@ urlpatterns = [
     path('login/', vistas.login1),
     path('registro/', vistas.registro),
     path('logout/', vistas.logoutUser),
-    path('agregar_habilidad/', vistas.agregar_habilidad, name='agregar_habilidad'),
+    path('agregar_habilidad', vistas.agregar_habilidad, name='agregar_habilidad'),
 
     path('', vistas.simple_upload, name='agregar_habilidad')
 

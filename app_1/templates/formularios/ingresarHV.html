@@ -333,34 +333,31 @@ body {
     
 </style>
 {% extends "base.html" %}
-{% block titulo %} Ingresar Habilidad - WorkFind {% endblock %}
+{% block titulo %} Ingresar Hoja de Vida - WorkFind {% endblock %}
 {% block contenido %}
 
-<h3 align="center">Habilidad</h3>
-<!-- Formulario de Oferta
-id empresa
-nomre empresa
-cargo
-perfil bsucado
-salario
--->
+<h3 align="center">Hoja de Vida</h3>
 
-<div class="row">
-    <div class="col-12 col-md-6 offset-md-3">
-        <!--<div class="card" style="background: none;">
-            <div class="card-body">-->
-            <form action="" class="" method="post">
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-4">
+                <h1 style="font-size: 24px; font-weight: bold;">Subir Hoja de Vida</h1>
+            </div>
+            <form method="post" class="form-signin" enctype="multipart/form-data">
                 {% csrf_token %}
-                <section class="form-registro"><!-- {{formOferta}} sin estilos-->
-                    <h4 align="center">Registrar Habilidad</h4>
-                    <input class="controles" type="text" name="nombre" id="Empresa_id_empresa" placeholder="Nombre Habilidad">
-                    <center><button type="submit" id="btnEnviar" class="botones">Enviar</button></center>
-                    <!--{{mensaje}}Revisar types en modelos para terminarla-->
-                </section>
+                <div class="text-center">
+                    <input type="file" name="myfile">
+                    <button type="submit">Subir Archivo</button>
+                </div>
             </form>
+            {% if uploaded_file_url %}
+            <p>Archivo subido en: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+            {% endif %}
         </div>
     </div>
 </div>
 
-{% endblock %}
 
+{% endblock %}
