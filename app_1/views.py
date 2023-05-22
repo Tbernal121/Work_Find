@@ -233,7 +233,7 @@ def agregar_habilidad(request):
         habilidad.usuario = usuario
         habilidad.save()
         messages.success(request, "Nueva habilidad registrada con éxito.")
-        return redirect('aspirantes')
+        return redirect('perfil')
     return render(request, 'formularios/ingresarHabilidad.html', {'formulario': formulario})
 
 
