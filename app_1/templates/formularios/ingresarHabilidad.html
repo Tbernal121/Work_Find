@@ -362,5 +362,25 @@ salario
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-4">
+                <h1 style="font-size: 24px; font-weight: bold;">Subir Hoja de Vida</h1>
+            </div>
+            <form method="post" class="form-signin" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="text-center">
+                    <input type="file" name="myfile">
+                    <button type="submit">Subir Archivo</button>
+                </div>
+            </form>
+            {% if uploaded_file_url %}
+            <p>Archivo subido en: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
