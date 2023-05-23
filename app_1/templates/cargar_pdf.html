@@ -336,32 +336,20 @@ body {
 {% block titulo %} Ingresar Habilidad - WorkFind {% endblock %}
 {% block contenido %}
 
-<h3 align="center">Habilidad</h3>
-<!-- Formulario de Oferta
-id empresa
-nomre empresa
-cargo
-perfil bsucado
-salario
--->
+<h3 align="center">Agregar Hoja de Vida</h3>
 
-<div class="row">
-    <div class="col-12 col-md-6 offset-md-3">
-        <!--<div class="card" style="background: none;">
-            <div class="card-body">-->
-            <form action="" class="" method="post">
-                {% csrf_token %}
-                <section class="form-registro"><!-- {{formOferta}} sin estilos-->
-                    <h4 align="center">Registrar Habilidad</h4>
-                    <input class="controles" type="text" name="nombre" id="Empresa_id_empresa" placeholder="Nombre Habilidad">
-                    <center><button type="submit" id="btnEnviar" class="botones">Enviar</button></center>
-                    <!--{{mensaje}}Revisar types en modelos para terminarla-->
-                </section>
-            </form>
-        </div>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <form method="post" enctype="multipart/form-data" class="text-center">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
 </div>
 
-
 {% endblock %}
+
+
+
 

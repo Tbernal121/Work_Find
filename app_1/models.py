@@ -101,6 +101,10 @@ class Habilidad1(models.Model):
         return self.nombre
 
 
+
+class ArchivoPDF(models.Model):
+    archivo = models.FileField(upload_to='pdfs/')
+
 '''
 class Post(models.Model):
     title = models.CharField(max_length=200)

@@ -46,7 +46,8 @@ urlpatterns = [
     path('logout/', vistas.logoutUser),
     path('agregar_habilidad', vistas.agregar_habilidad, name='agregar_habilidad'),
 
-    path('', vistas.simple_upload, name='agregar_habilidad')
+    path('', vistas.simple_upload, name='agregar_habilidad'),
+    path('cargar_pdf', vistas.cargar_pdf, name='cargar_pdf'),
 
     #path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
 

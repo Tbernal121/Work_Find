@@ -12,4 +12,5 @@ admin.site.register(Oferta)
 admin.site.register(Match)
 admin.site.register(Ver_matchs)
 admin.site.register(Habilidad1)
+admin.site.register(ArchivoPDF)
 

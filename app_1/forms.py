@@ -1,5 +1,6 @@
 from django import forms
-from .models import Aspirante, Empresa, Oferta, Match, Habilidad1
+from .models import Aspirante, Empresa, Oferta, Match, Habilidad1, ArchivoPDF
+
 
 class ingresarOfertaForm(forms.ModelForm):
     class Meta:
@@ -28,3 +29,9 @@ class HabilidadForm(forms.ModelForm):
     class Meta:
         model = Habilidad1
         fields = ('nombre',)
+
+
+class ArchivoPDFForm(forms.ModelForm):
+    class Meta:
+        model = ArchivoPDF
+        fields = ['archivo']

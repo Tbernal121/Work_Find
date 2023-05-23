@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
 from django.contrib import messages
-from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm, HabilidadForm
+from .forms import ingresarAspiranteForm, ingresarEmpresaForm, ingresarOfertaForm, PresentarseOfertaForm, HabilidadForm, ArchivoPDFForm
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -254,3 +254,18 @@ def simple_upload(request):
 def perfil(request):
     usuarios_obj = Usuario.objects.get(nombre_usuario=request.user)
     return render(request, 'perfil.html', {'name':usuarios_obj.nombre_usuario})
+
+
+
+
+
+
+def cargar_pdf(request):
+    if request.method == 'POST':
+        form = ArchivoPDFForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirige a la página de inicio después de guardar el archivo
+    else:
+        form = ArchivoPDFForm()
+    return render(request, 'cargar_pdf.html', {'form': form})
