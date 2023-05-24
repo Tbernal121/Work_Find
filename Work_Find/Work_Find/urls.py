@@ -48,6 +48,7 @@ urlpatterns = [
 
     path('', vistas.simple_upload, name='agregar_habilidad'),
     path('cargar_pdf', vistas.cargar_pdf, name='cargar_pdf'),
+    path('eliminar/<int:pk>/', vistas.delete_view, name='delete_view'),
 
     #path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
 
