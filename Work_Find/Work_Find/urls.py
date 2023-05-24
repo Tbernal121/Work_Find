@@ -40,7 +40,6 @@ urlpatterns = [
     path('ingresarAspirante', vistas.ingresarAspirante, name = 'ingresarAspirante'),
     path('PresentarseOferta', vistas.aplicarOferta, name = 'PresentarseOferta'),
 
-
     path('login/', vistas.login1),
     path('registro/', vistas.registro),
     path('logout/', vistas.logoutUser),
