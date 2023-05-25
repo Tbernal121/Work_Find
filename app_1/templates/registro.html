@@ -1,23 +1,23 @@
 <style>
-	:root {
-		--width: 300px;
-		--padding: 10px;
-		--bgcolor: #193235;
-		--hovercolor: #0f1f20;
-		--width-collapsed: 50px;
-	}
-
-	body {
-		background: url(https://i.postimg.cc/284ZrdcS/Imagen7.png);
-		background-size: 100%;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		font-family: 'Poppins';
-		font-size: 22px;
-		padding: 0;
-		margin: 0;
-		margin-left: var(--width-collapsed);
-	}
+    :root{
+        --width: 300px;
+        --padding: 10px;
+        --bgcolor: #3c3cd7;
+        --hovercolor: #0f1f20;
+        --width-collapsed: 50px;
+    }
+    
+    body{
+        background: url(https://i.postimg.cc/LXfxxxTg/ec849ce2ec412ff76fc7ea2e628874e9.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: 'Poppins';
+        font-size: 22px;
+        padding: 0;
+        margin: 0;
+        margin-left: var(--width-collapsed);
+    }
 
 	#main-container {
 		color: white;
@@ -214,11 +214,11 @@
 		transition: .3s ease all;
 	}
 
-	.fondoColor {
-		background-color: #204044;
-		height: 57px;
-		box-shadow: 0 2px 5px rgba(0, 0, 0);
-	}
+	.fondoColor{
+        background-color: #2828d2;
+        height: 57px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0);
+    }
 
 	.alinear {
 		text-align: right;
@@ -305,7 +305,7 @@
 	html {
 
 		height: 100%;
-		background: url(https://i.postimg.cc/284ZrdcS/Imagen7.png);
+		background: url(https://i.postimg.cc/LXfxxxTg/ec849ce2ec412ff76fc7ea2e628874e9.jpg);
 		background-size: 100%;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
@@ -376,13 +376,7 @@
 		padding: 10px;
 		margin-top: 10px;
 	}
-
-	.fondoColor {
-		background-color: #204044;
-		height: 57px;
-		box-shadow: 0 2px 5px rgba(0, 0, 0);
-	}
-
+	
 	.alinear {
 		text-align: right;
 	}
@@ -453,26 +447,18 @@
 
 <body>
 	<nav class="fondoColor alinear posicion">
-		<span><a href="/"><img width=13% class="logo" src="https://i.postimg.cc/mgwHwvG4/corbata-work-find.png"
-					alt=""></a></span>
-		<span>
-			<a href=""><abbr class="espacios" title="¡Llámanos o escríbenos!">
-					<font face="Poppins">Contáctenos</font>
-				</abbr></a>
-			<a href=""><abbr class="espacios" title="¡Conócenos!">
-					<font face="Poppins">Quiénes somos</font>
-				</abbr></a>
-			<a href=""><abbr class="espacios" title="¿Qué ofrecemos?">
-					<font face="Poppins">Servicios</font>
-				</abbr></a>
-			<a href="/"><abbr class="espacios" title="Regresa a la pantalla de inicio">
-					<font face="Poppins">Inicio</font>
-				</abbr></a>
-			
-				
-		</span>
-		
-	</nav>
+        <span><a href="../logout/"><img width=3% class="logo2" title="Cerrar sesión"
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" alt=""></a>
+        </span>
+        <span><a href="{% url 'homes' %}"><img width=10% class="logo" src="https://i.postimg.cc/mgwHwvG4/corbata-work-find.png" alt=""></a></span>
+        <span> 
+            <a href="{% url 'homes' %}"><font face="Poppins">Contáctenos</font></abbr></a>
+            <a href="{% url 'homes' %}"><font face="Poppins">Quiénes somos</font></abbr></a>
+            <a href="{% url 'homes' %}"><font face="Poppins">Servicios</font></abbr></a>
+            <a href="{% url 'homes' %}"><font face="Poppins">Inicio</font></abbr></a>
+        </span>
+
+    </nav>
 	
 	<div style="text-align: center; padding-top: 2em;" class="container h-100">
 		
@@ -523,7 +509,7 @@
 					</div>
 				</div>
 			</div>
-			<div style="padding-top: 4em; padding-left: 3em; transition: .3s ease all; ">
+			<div style="color:rgb(209, 209, 209); padding-top: 4em; padding-left: 3em; transition: .3s ease all; ">
 				<div>
 					<p>
 						<h6><font face="Poppins" style="text-align: center;" color="#203b6b"><b>
