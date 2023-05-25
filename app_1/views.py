@@ -256,6 +256,15 @@ def perfil(request):
     return render(request, 'perfil.html', {'name':usuarios_obj.nombre_usuario})
 
 @login_required(login_url='../login/')
+def buscarUsuario(request):
+    searchTerm = request.GET.get('buscarUsuario')
+    if searchTerm: 
+        habilidad1s = Habilidad1.objects.filter(usuario__nombre_usuario__icontains=searchTerm)
+    else: 
+        habilidad1s = Habilidad1.objects.all()
+    return render(request, 'buscarUsuario.html', {'searchTerm':searchTerm, 'habilidad1s': habilidad1s})
+
+@login_required(login_url='../login/')
 def cargar_pdf(request):
     if request.method == 'POST':
         form = ArchivoPDFForm(request.POST, request.FILES)

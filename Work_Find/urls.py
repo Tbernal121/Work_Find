@@ -31,6 +31,7 @@ urlpatterns = [
     path('matchs', vistas.matchs, name= 'matchs'),
     path('ver_matchs', vistas.ver_matchs, name = 'ver_matchs'),
     path('perfil', vistas.perfil, name= 'perfil'),
+    path('buscarUsuario', vistas.buscarUsuario, name= 'buscarUsuario'),
 
     path('docEmpresa', vistas.documentacionEmpresa, name= 'docEmpresa'),
     path('docAspirante', vistas.documentacionAspirante, name= 'docAspirante'),
